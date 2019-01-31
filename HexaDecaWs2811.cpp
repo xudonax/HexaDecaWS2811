@@ -1,8 +1,10 @@
-/*  HexaDecaWS2811 - High Performance WS2811 LED Display Library
-    http://www.pjrc.com/teensy/td_libs_HexaDecaWS2811.html
+/* HexaDecaWS2811 - Based on the work of Paul Stoffregen for OctoWS2811 */
+
+/*  OctoWS2811 - High Performance WS2811 LED Display Library
+    http://www.pjrc.com/teensy/td_libs_OctoWS2811.html
     Copyright (c) 2013 Paul Stoffregen, PJRC.COM, LLC
     Some Teensy-LC support contributed by Mark Baysinger.
-    https://forum.pjrc.com/threads/40863-Teensy-LC-port-of-HexaDecaWS2811
+    https://forum.pjrc.com/threads/40863-Teensy-LC-port-of-OctoWS2811
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal

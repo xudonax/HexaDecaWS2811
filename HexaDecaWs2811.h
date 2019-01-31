@@ -1,5 +1,7 @@
-/*  HexaDecaWS2811 - High Performance WS2811 LED Display Library
-    http://www.pjrc.com/teensy/td_libs_HexaDecaWS2811.html
+/* HexaDecaWS2811 - Based on the work of Paul Stoffregen for OctoWS2811 */
+
+/*  OctoWS2811 - High Performance WS2811 LED Display Library
+    http://www.pjrc.com/teensy/td_libs_OctoWS2811.html
     Copyright (c) 2013 Paul Stoffregen, PJRC.COM, LLC
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
