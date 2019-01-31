@@ -5,6 +5,12 @@
   "keywords": "serial",
   "description": "Control thousands of WS2811/2812/2813 LEDs at video refresh speeds",
   "homepage": "http://github.com/xudonax/HexaDecaWS2811",
+  "license": "MIT",
+  "export": {
+    "include": [
+      "*.[ch]pp"
+    ]
+  },
   "authors": [
     {
       "name": "Paul Stoffregen",
