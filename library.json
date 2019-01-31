@@ -1,19 +1,23 @@
 {
-  "name": "OctoWS2811",
+  "name": "HexaDecaWS2811",
   "frameworks": "Arduino",
   "platforms": "Teensy",
   "keywords": "serial",
-  "description": "Control thousands of WS2811/2812 LEDs at video refresh speeds",
-  "homepage": "http://www.pjrc.com/teensy/td_libs_OctoWS2811.html",
-  "authors":
-  {
-    "name": "Paul Stoffregen",
-    "maintainer": true
+  "description": "Control thousands of WS2811/2812/2813 LEDs at video refresh speeds",
+  "homepage": "http://github.com/xudonax/HexaDecaWS2811",
+  "authors": [
+    {
+      "name": "Paul Stoffregen",
+      "maintainer": false
+    },
+    {
+      "name": "Sanne Bregman",
+      "maintainer": true
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xudonax/HexaDecaWS2811"
   },
-  "repository":
-  {
-      "type": "git",
-      "url": "https://github.com/PaulStoffregen/OctoWS2811"
-  },
-  "version": "1.4"
+  "version": "0.1"
 }

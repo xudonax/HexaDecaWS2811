@@ -1,5 +1,5 @@
-/*  OctoWS2811 - High Performance WS2811 LED Display Library
-    http://www.pjrc.com/teensy/td_libs_OctoWS2811.html
+/*  HexaDecaWS2811 - High Performance WS2811 LED Display Library
+    http://www.pjrc.com/teensy/td_libs_HexaDecaWS2811.html
     Copyright (c) 2013 Paul Stoffregen, PJRC.COM, LLC
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,11 +21,11 @@
     THE SOFTWARE.
 */
 
-#ifndef OctoWS2811_h
-#define OctoWS2811_h
+#ifndef HexaDecaWS2811_h
+#define HexaDecaWS2811_h
 
 #ifdef __AVR__
-#error "Sorry, OctoWS2811 only works on 32 bit Teensy boards.  AVR isn't supported."
+#error "Sorry, HexaDecaWS2811 only works on 32 bit Teensy boards.  AVR isn't supported."
 #endif
 
 #include <Arduino.h>
@@ -35,7 +35,7 @@
 #error "Teensyduino version 1.21 or later is required to compile this library."
 #endif
 #ifdef __AVR__
-#error "OctoWS2811 does not work with Teensy 2.0 or Teensy++ 2.0."
+#error "HexaDecaWS2811 does not work with Teensy 2.0 or Teensy++ 2.0."
 #endif
 
 #define WS2811_RGB	0	// The WS2811 datasheet documents this way
@@ -50,9 +50,9 @@
 #define WS2813_800kHz 0x20	// WS2813 are close to 800 kHz but has 300 us frame set delay
 
 
-class OctoWS2811 {
+class HexaDecaWS2811 {
 public:
-	OctoWS2811(uint32_t numPerStrip, void *frameBuf, void *drawBuf, uint8_t config = WS2811_GRB);
+	HexaDecaWS2811(uint32_t numPerStrip, void *frameBuf, void *drawBuf, uint8_t config = WS2811_GRB);
 	void begin(void);
 	void begin(uint32_t numPerStrip, void *frameBuf, void *drawBuf, uint8_t config = WS2811_GRB);
 

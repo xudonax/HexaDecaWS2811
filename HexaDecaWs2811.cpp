@@ -1,8 +1,8 @@
-/*  OctoWS2811 - High Performance WS2811 LED Display Library
-    http://www.pjrc.com/teensy/td_libs_OctoWS2811.html
+/*  HexaDecaWS2811 - High Performance WS2811 LED Display Library
+    http://www.pjrc.com/teensy/td_libs_HexaDecaWS2811.html
     Copyright (c) 2013 Paul Stoffregen, PJRC.COM, LLC
     Some Teensy-LC support contributed by Mark Baysinger.
-    https://forum.pjrc.com/threads/40863-Teensy-LC-port-of-OctoWS2811
+    https://forum.pjrc.com/threads/40863-Teensy-LC-port-of-HexaDecaWS2811
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -24,22 +24,22 @@
 */
 
 #include <string.h>
-#include "OctoWS2811.h"
+#include "HexaDecaWS2811.h"
 
 
-uint16_t OctoWS2811::stripLen;
-void * OctoWS2811::frameBuffer;
-void * OctoWS2811::drawBuffer;
-uint8_t OctoWS2811::params;
-DMAChannel OctoWS2811::dma1;
-DMAChannel OctoWS2811::dma2;
-DMAChannel OctoWS2811::dma3;
+uint16_t HexaDecaWS2811::stripLen;
+void * HexaDecaWS2811::frameBuffer;
+void * HexaDecaWS2811::drawBuffer;
+uint8_t HexaDecaWS2811::params;
+DMAChannel HexaDecaWS2811::dma1;
+DMAChannel HexaDecaWS2811::dma2;
+DMAChannel HexaDecaWS2811::dma3;
 
 static uint8_t ones = 0xFF;
 static volatile uint8_t update_in_progress = 0;
 static uint32_t update_completed_at = 0;
 
-OctoWS2811::OctoWS2811(uint32_t numPerStrip, void *frameBuf, void *drawBuf, uint8_t config)
+HexaDecaWS2811::HexaDecaWS2811(uint32_t numPerStrip, void *frameBuf, void *drawBuf, uint8_t config)
 {
 	stripLen = numPerStrip;
 	frameBuffer = frameBuf;
@@ -66,9 +66,9 @@ OctoWS2811::OctoWS2811(uint32_t numPerStrip, void *frameBuf, void *drawBuf, uint
 #define WS2811_TIMING_T1H  176
 
 // Discussion about timing and flicker & color shift issues:
-// http://forum.pjrc.com/threads/23877-WS2812B-compatible-with-OctoWS2811-library?p=38190&viewfull=1#post38190
+// http://forum.pjrc.com/threads/23877-WS2812B-compatible-with-HexaDecaWS2811-library?p=38190&viewfull=1#post38190
 
-void OctoWS2811::begin(uint32_t numPerStrip, void *frameBuf, void *drawBuf, uint8_t config)
+void HexaDecaWS2811::begin(uint32_t numPerStrip, void *frameBuf, void *drawBuf, uint8_t config)
 {
 	stripLen = numPerStrip;
 	frameBuffer = frameBuf;
@@ -77,7 +77,7 @@ void OctoWS2811::begin(uint32_t numPerStrip, void *frameBuf, void *drawBuf, uint
 	begin();
 }
 
-void OctoWS2811::begin(void)
+void HexaDecaWS2811::begin(void)
 {
 	uint32_t bufsize, frequency;
 	bufsize = stripLen*24;
@@ -224,7 +224,7 @@ void OctoWS2811::begin(void)
 	//pinMode(9, OUTPUT); // testing: oscilloscope trigger
 }
 
-void OctoWS2811::isr(void)
+void HexaDecaWS2811::isr(void)
 {
 	//digitalWriteFast(9, HIGH);
 	//Serial1.print(".");
@@ -240,7 +240,7 @@ void OctoWS2811::isr(void)
 	//digitalWriteFast(9, LOW);
 }
 
-int OctoWS2811::busy(void)
+int HexaDecaWS2811::busy(void)
 {
 	if (update_in_progress) return 1;
 	// busy for 50 (or 300 for ws2813) us after the done interrupt, for WS2811 reset
@@ -248,7 +248,7 @@ int OctoWS2811::busy(void)
 	return 0;
 }
 
-void OctoWS2811::show(void)
+void HexaDecaWS2811::show(void)
 {
 	// wait for any prior DMA operation
 	//Serial1.print("1");
@@ -383,7 +383,7 @@ void OctoWS2811::show(void)
 	//Serial1.print("4");
 }
 
-void OctoWS2811::setPixel(uint32_t num, int color)
+void HexaDecaWS2811::setPixel(uint32_t num, int color)
 {
 	uint32_t strip, offset, mask32, *p;
 
@@ -438,7 +438,7 @@ void OctoWS2811::setPixel(uint32_t num, int color)
 	*p |= (((color & 0x8) >> 3) | ((color & 0x4) << 6) | ((color & 0x2) << 15) | ((color & 0x1) << 24)) << strip;
 }
 
-int OctoWS2811::getPixel(uint32_t num)
+int HexaDecaWS2811::getPixel(uint32_t num)
 {
 	uint32_t strip, offset, mask;
 	uint8_t bit, *p;
